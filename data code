@@ -2,3 +2,7 @@ ssh ieuser@10.21.90.78 -p 8080
   yes
   비밀번호 tiger
 uname -a :버전 정보 알려주는것 
+
+sqlplus
+사용자명 입력:scott
+비밀번호 입력:tiger
