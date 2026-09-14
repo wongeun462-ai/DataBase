@@ -8,3 +8,26 @@ sqlplus
 비밀번호 입력:tiger
 
 WMS(warehouse management system)
+
+select *
+from dept;
+
+select *
+from dept
+;
+
+select * from tab;
+
+select * from emp;
+
+describe dept
+
+desc dept;
+
+selcet * from tab;
+
+desc emp;
+
+select ename, sal, 300, sal+300
+
+select sal,1+2+3,sal*12 from emp;
