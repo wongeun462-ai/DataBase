@@ -1,0 +1,3 @@
+ssh ieuser@10.21.90.78 -p 8080
+  yes
+  비밀번호 tiger
