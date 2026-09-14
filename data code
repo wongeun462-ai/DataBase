@@ -6,3 +6,5 @@ uname -a :버전 정보 알려주는것
 sqlplus
 사용자명 입력:scott
 비밀번호 입력:tiger
+
+WMS(warehouse management system)
