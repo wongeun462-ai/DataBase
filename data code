@@ -237,3 +237,170 @@ Employees
 JAMES CLERK
 FORD ANALYST
 MILLER CLERK
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select ename || ' ' || sal "Employees" from emp
+SQL> /
+Employees
+--------------------------------------------------------------------------------
+SMITH 2000
+ALLEN 1600
+WARD 1250
+JONES 2975
+MARTIN 1250
+BLAKE 2850
+CLARK 2850
+SCOTT 3000
+KING 5000
+TURNER 1500
+ADAMS 1100
+
+Employees
+--------------------------------------------------------------------------------
+JAMES 950
+FORD 3300
+MILLER 1300
+
+SQL> desc emp
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select deptno from emp;
+
+    DEPTNO
+----------
+        20
+        30
+        30
+        20
+        30
+        30
+        10
+        20
+        10
+        30
+        20
+
+    DEPTNO
+----------
+        30
+        20
+        10
+
+SQL> select distinct deptno from emp;
+
+    DEPTNO
+----------
+        30
+        20
+        10
+
+SQL> select distinct job from emp;
+
+JOB
+------------------
+CLERK
+SALESMAN
+PRESIDENT
+MANAGER
+ANALYST
+
+SQL> select distinct deptno,job from emp;
+
+    DEPTNO JOB
+---------- ------------------
+        20 CLERK
+        30 SALESMAN
+        20 MANAGER
+        30 CLERK
+        10 PRESIDENT
+        30 MANAGER
+        10 CLERK
+        10 MANAGER
+        20 ANALYST
+
+SQL> list
+  1* select distinct deptno,job from emp
+SQL> save c:\temp\qq.sql(파일 저장)
+file c:\temp\qq.sql(이)가 생성되었습니다
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7369 SMITH                CLERK                    7902 80/12/17
+      2000                    20
+
+      7499 ALLEN                SALESMAN                 7698 81/02/20
+      1600        300         30
+
+      7521 WARD                 SALESMAN                 7698 81/02/22
+      1250        500         30
+
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7566 JONES                MANAGER                  7839 81/04/02
+      2975                    20
+
+      7654 MARTIN               SALESMAN                 7698 81/09/28
+      1250       1400         30
+
+      7698 BLAKE                MANAGER                  7839 81/05/01
+      2850                    30
+
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7782 CLARK                MANAGER                  7839 81/06/09
+      2850                    10
+
+      7788 SCOTT                ANALYST                  7566 87/04/19
+      3000                    20
+
+      7839 KING                 PRESIDENT                     81/11/17
+      5000                    10
+
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7844 TURNER               SALESMAN                 7698 81/09/08
+      1500          0         30
+
+      7876 ADAMS                CLERK                    7788 87/05/23
+      1100                    20
+
+      7900 JAMES                CLERK                    7698 81/12/03
+       950                    30
+
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7902 FORD                 ANALYST                  7566 81/12/03
+      3300                    20
+
+      7934 MILLER               CLERK                    7782 82/01/23
+      1300                    10
+
+SQL> get c:\temp\qq.sql (불러오기)
+  1* select distinct deptno,job from emp
+
