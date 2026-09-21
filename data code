@@ -34,3 +34,17 @@ select sal,1+2+3,sal*12 from emp;
 
 서버접속할때 쓰는거
 sqlplus scott/tiger@//10.21.90.78:1521/iedb.kangwon.ac.kr
+
+desc dept
+ select
+  2  dname,loc
+  3  from dept;
+run or / 하면 
+DNAME                        LOC
+---------------------------- --------------------------
+ACCOUNTING                   NEW YORK
+RESEARCH                     DALLAS
+SALES                        CHICAGO
+OPERATIONS                   BOSTON
+
+이렇게나옴
