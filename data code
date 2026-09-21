@@ -133,8 +133,107 @@ select ename as "Name", sal "Monthly Salary" from emp
 /
 
 
-windows->system32 -> drivers -> etc->hosts에 iedb.kangwon.ac.kr 넣고 저장
+windows->system32 -> drivers -> etc->hosts에 10.21.90.78 iedb.kangwon.ac.kr 넣고 저장
 메모장 관리자권한으로 열기해야됨
 그후에
 sqlplus scott@iedb.kangwon.ac.kr 
 비밀번호:tiger
+
+SQL> select ename, job from emp;
+
+ENAME                JOB
+-------------------- ------------------
+SMITH                CLERK
+ALLEN                SALESMAN
+WARD                 SALESMAN
+JONES                MANAGER
+MARTIN               SALESMAN
+BLAKE                MANAGER
+CLARK                MANAGER
+SCOTT                ANALYST
+KING                 PRESIDENT
+TURNER               SALESMAN
+ADAMS                CLERK
+
+ENAME                JOB
+-------------------- ------------------
+JAMES                CLERK
+FORD                 ANALYST
+MILLER               CLERK
+
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select ename Name, job "Job" from emp
+SQL> /
+
+NAME                 Job
+-------------------- ------------------
+SMITH                CLERK
+ALLEN                SALESMAN
+WARD                 SALESMAN
+JONES                MANAGER
+MARTIN               SALESMAN
+BLAKE                MANAGER
+CLARK                MANAGER
+SCOTT                ANALYST
+KING                 PRESIDENT
+TURNER               SALESMAN
+ADAMS                CLERK
+
+NAME                 Job
+-------------------- ------------------
+JAMES                CLERK
+FORD                 ANALYST
+MILLER               CLERK
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select ename || job "Employees" from emp
+SQL> /
+
+Employees
+--------------------------------------
+SMITHCLERK
+ALLENSALESMAN
+WARDSALESMAN
+JONESMANAGER
+MARTINSALESMAN
+BLAKEMANAGER
+CLARKMANAGER
+SCOTTANALYST
+KINGPRESIDENT
+TURNERSALESMAN
+ADAMSCLERK
+
+Employees
+--------------------------------------
+JAMESCLERK
+FORDANALYST
+MILLERCLERK
+
+1* select ename || ' ' || job "Employees" from emp
+' '(스페이스 역할
+SQL> /
+
+Employees
+----------------------------------------
+SMITH CLERK
+ALLEN SALESMAN
+WARD SALESMAN
+JONES MANAGER
+MARTIN SALESMAN
+BLAKE MANAGER
+CLARK MANAGER
+SCOTT ANALYST
+KING PRESIDENT
+TURNER SALESMAN
+ADAMS CLERK
+
+Employees
+----------------------------------------
+JAMES CLERK
+FORD ANALYST
+MILLER CLERK
