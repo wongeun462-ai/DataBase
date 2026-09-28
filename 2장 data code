@@ -407,3 +407,8 @@ JAMES                     11400
 
 14 행이 선택되었습니다.
 
+SQL> select substr('염원근',1,1) || 'O' || substr('염원근',3,1) from dual;
+
+SUBSTR('염원근
+--------------
+염O근
