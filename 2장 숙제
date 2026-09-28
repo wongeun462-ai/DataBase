@@ -84,6 +84,13 @@ CLARK                          2850
 KING                           5000
 
 7.
+SQL> SELECT ename, hiredate
+  2  FROM emp
+  3  WHERE hiredate BETWEEN '1982-01-01' AND '1982-12-31';
+
+ENAME                HIREDATE
+-------------------- --------
+MILLER               82/01/23
 
 8.
 SQL> select ename, job
