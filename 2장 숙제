@@ -1,0 +1,156 @@
+1.
+SQL> select ename, sal
+  2  from emp
+  3  where sal > 2850;
+
+ENAME                       SAL
+-------------------- ----------
+JONES                      2975
+SCOTT                      3000
+KING                       5000
+FORD                       3300
+
+2.
+SQL> select ename, deptno
+  2  from emp
+  3  where empno = 7566;
+
+ENAME                    DEPTNO
+-------------------- ----------
+JONES                        20
+
+3.
+SQL> select ename, sal
+  2  from emp
+  3  where sal NOT BETWEEn 1500 and 2850;
+
+ENAME                       SAL
+-------------------- ----------
+WARD                       1250
+JONES                      2975
+MARTIN                     1250
+SCOTT                      3000
+KING                       5000
+ADAMS                      1100
+JAMES                       950
+FORD                       3300
+MILLER                     1300
+
+9 행이 선택되었습니다.
+
+4.
+SQL> select ename, job,hiredate
+  2  from emp
+  3  where hiredate between '1981-02-20' and '1981-05-01'
+  4  order by hiredate;
+
+ENAME                JOB                HIREDATE
+-------------------- ------------------ --------
+ALLEN                SALESMAN           81/02/20
+WARD                 SALESMAN           81/02/22
+JONES                MANAGER            81/04/02
+BLAKE                MANAGER            81/05/01
+
+5.
+SQL> select ename, deptno
+  2  from emp
+  3  where deptno in (10,30)
+  4  order by ename;
+
+ENAME                    DEPTNO
+-------------------- ----------
+ALLEN                        30
+BLAKE                        30
+CLARK                        10
+JAMES                        30
+KING                         10
+MARTIN                       30
+MILLER                       10
+TURNER                       30
+WARD                         30
+
+9 행이 선택되었습니다.
+
+6.
+SQL> select ename as "Employee", sal As "Monthly Salary"
+  2  from emp
+  3  where sal > 1500 and deptno in (10,30);
+
+Employee             Monthly Salary
+-------------------- --------------
+ALLEN                          1600
+BLAKE                          2850
+CLARK                          2850
+KING                           5000
+
+7.
+
+8.
+SQL> select ename, job
+  2  from emp
+  3  where mgr is null;
+
+ENAME                JOB
+-------------------- ------------------
+KING                 PRESIDENT
+
+9.
+SQL> select ename, sal, comm
+  2  from emp
+  3  where comm is not null and comm >0
+  4  order by sal desc, comm desc;
+
+ENAME                       SAL       COMM
+-------------------- ---------- ----------
+ALLEN                      1600        300
+MARTIN                     1250       1400
+WARD                       1250        500
+
+10.
+SQL> select ename
+  2  from emp
+  3  where ename like '__A%';
+
+ENAME
+--------------------
+ADAMS
+BLAKE
+CLARK
+
+11.
+SQL> select ename, job,sal
+  2  from emp
+  3  where job in('CLERK','ANALYST')
+  4  and sal not in (1000,3000,5000);
+
+ENAME                JOB                       SAL
+-------------------- ------------------ ----------
+SMITH                CLERK                    2000
+ADAMS                CLERK                    1100
+JAMES                CLERK                     950
+FORD                 ANALYST                  3300
+MILLER               CLERK                    1300
+
+12.
+SQL> select ename, job,sal
+  2  from emp
+  3  where job in('CLERK','ANALYST')
+  4  and sal not in (1000,3000,5000);
+
+ENAME                JOB                       SAL
+-------------------- ------------------ ----------
+SMITH                CLERK                    2000
+ADAMS                CLERK                    1100
+JAMES                CLERK                     950
+FORD                 ANALYST                  3300
+MILLER               CLERK                    1300
+
+13.
+
+SQL> select ename, sal, comm
+  2  from emp
+  3  where comm > sal *1.1;
+
+ENAME                       SAL       COMM
+-------------------- ---------- ----------
+MARTIN                     1250       1400
