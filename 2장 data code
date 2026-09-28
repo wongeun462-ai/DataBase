@@ -1,0 +1,409 @@
+sqlplus scott@10.21.90.78/iedb.kangwon.ac.kr
+SQL> select ename, job, deptno
+  2  from emp
+  3  where job='CLERK';
+
+ENAME                JOB                    DEPTNO
+-------------------- ------------------ ----------
+SMITH                CLERK                      20
+ADAMS                CLERK                      20
+JAMES                CLERK                      30
+MILLER               CLERK                      10
+
+SQL> select ename,job,deptno
+  2  from emp
+  3  where ename = 'JAMES';
+
+ENAME                JOB                    DEPTNO
+-------------------- ------------------ ----------
+JAMES                CLERK                      30
+
+SQL> desc emp
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+ SQL> select ename, hiredate from emp;
+
+ENAME                HIREDATE
+-------------------- --------
+SMITH                80/12/17
+ALLEN                81/02/20
+WARD                 81/02/22
+JONES                81/04/02
+MARTIN               81/09/28
+BLAKE                81/05/01
+CLARK                81/06/09
+SCOTT                87/04/19
+KING                 81/11/17
+TURNER               81/09/08
+ADAMS                87/05/23
+
+ENAME                HIREDATE
+-------------------- --------
+JAMES                81/12/03
+FORD                 81/12/03
+MILLER               82/01/23
+
+14 행이 선택되었습니다.
+
+SQL> select * from emp where hiredate='80/12/17';
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7369 SMITH                CLERK                    7902 80/12/17
+      2000                    20
+
+      SQL> select * from emp where empno='7902';
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7902 FORD                 ANALYST                  7566 81/12/03
+      3300                    20
+
+
+SQL> select ename, sal,comm
+  2  from emp
+  3  where sal<=comm;
+
+ENAME                       SAL       COMM
+-------------------- ---------- ----------
+MARTIN                     1250       1400
+
+SQL> select ename, sal from emp
+  2  where sal between 1000 and 1500;
+
+ENAME                       SAL
+-------------------- ----------
+WARD                       1250
+MARTIN                     1250
+TURNER                     1500
+ADAMS                      1100
+MILLER                     1300
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename, sal from emp
+  2* where sal between 1500 and 1000
+SQL> /
+
+선택된 레코드가 없습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename, sal from emp
+  2* where sal between 1000 and 1500
+SQL>
+SQL> /
+
+ENAME                       SAL
+-------------------- ----------
+WARD                       1250
+MARTIN                     1250
+TURNER                     1500
+ADAMS                      1100
+MILLER                     1300
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename, sal from emp
+  2* where sal >= 1000 and <=1500
+SQL> /
+where sal >= 1000 and <=1500
+                      *
+2행에 오류:
+ORA-00936: 누락된 표현식
+
+
+SQL> /
+where sal >= 1000 and <=1500
+                      *
+2행에 오류:
+ORA-00936: 누락된 표현식
+
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename, sal from emp
+  2* where sal >= 1000 and sal <=1500
+SQL> /
+
+ENAME                       SAL
+-------------------- ----------
+WARD                       1250
+MARTIN                     1250
+TURNER                     1500
+ADAMS                      1100
+MILLER                     1300
+
+SQL> select empno,ename,sal,mgr from emp
+  2  where mgr in (7902, 7566,7788)
+  3
+SQL>
+SQL> select empno,ename,sal,mgr from emp
+  2  where mgr in (7902, 7566,7788);
+
+     EMPNO ENAME                       SAL        MGR
+---------- -------------------- ---------- ----------
+      7369 SMITH                      2000       7902
+      7788 SCOTT                      3000       7566
+      7876 ADAMS                      1100       7788
+      7902 FORD                       3300       7566
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select empno,ename,sal,mgr from emp
+  2* where mgr = 7902 or mgr = 7566 or mgr=7788
+SQL> /
+
+     EMPNO ENAME                       SAL        MGR
+---------- -------------------- ---------- ----------
+      7369 SMITH                      2000       7902
+      7788 SCOTT                      3000       7566
+      7876 ADAMS                      1100       7788
+      7902 FORD                       3300       7566
+
+SQL> select * from emp where ename like 'A___N';
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7499 ALLEN                SALESMAN                 7698 81/02/20
+      1600        300         30
+
+
+SQL> list
+  1* select * from emp where ename like 'A___N'
+SQL> select ename, job,sal fromemp
+  2  where job='SALESMAN' OR (job='PRESIDENT'AND SAL >1500)
+  3
+SQL> select ename, job,sal fromemp
+  2  where job='SALESMAN' OR (job='PRESIDENT'AND SAL >1500);
+where job='SALESMAN' OR (job='PRESIDENT'AND SAL >1500)
+*
+2행에 오류:
+ORA-00923: FROM 키워드가 필요한 위치에 없습니다.
+
+
+SQL> select ename, job,sal from emp
+  2  where job='SALESMAN' OR (job='PRESIDENT'AND SAL >1500);
+
+ENAME                JOB                       SAL
+-------------------- ------------------ ----------
+ALLEN                SALESMAN                 1600
+WARD                 SALESMAN                 1250
+MARTIN               SALESMAN                 1250
+KING                 PRESIDENT                5000
+TURNER               SALESMAN                 1500
+
+SQL> select ename, hiredate, job, deptno
+  2  from emp where deptno >= 20 order by hiredate
+  3
+SQL> select ename, hiredate, job, deptno
+  2  from emp where deptno >= 20 order by hiredate;
+
+ENAME                HIREDATE JOB                    DEPTNO
+-------------------- -------- ------------------ ----------
+SMITH                80/12/17 CLERK                      20
+ALLEN                81/02/20 SALESMAN                   30
+WARD                 81/02/22 SALESMAN                   30
+JONES                81/04/02 MANAGER                    20
+BLAKE                81/05/01 MANAGER                    30
+TURNER               81/09/08 SALESMAN                   30
+MARTIN               81/09/28 SALESMAN                   30
+FORD                 81/12/03 ANALYST                    20
+JAMES                81/12/03 CLERK                      30
+SCOTT                87/04/19 ANALYST                    20
+ADAMS                87/05/23 CLERK                      20
+
+11 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select hiredate,ename,  job, deptno
+  2* from emp where deptno >= 20 order by hiredate
+SQL> /
+
+HIREDATE ENAME                JOB                    DEPTNO
+-------- -------------------- ------------------ ----------
+80/12/17 SMITH                CLERK                      20
+81/02/20 ALLEN                SALESMAN                   30
+81/02/22 WARD                 SALESMAN                   30
+81/04/02 JONES                MANAGER                    20
+81/05/01 BLAKE                MANAGER                    30
+81/09/08 TURNER               SALESMAN                   30
+81/09/28 MARTIN               SALESMAN                   30
+81/12/03 FORD                 ANALYST                    20
+81/12/03 JAMES                CLERK                      30
+87/04/19 SCOTT                ANALYST                    20
+87/05/23 ADAMS                CLERK                      20
+
+11 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,  job, deptno,hiredate
+  2* from emp where deptno >= 20 order by hiredate
+SQL> /
+
+ENAME                JOB                    DEPTNO HIREDATE
+-------------------- ------------------ ---------- --------
+SMITH                CLERK                      20 80/12/17
+ALLEN                SALESMAN                   30 81/02/20
+WARD                 SALESMAN                   30 81/02/22
+JONES                MANAGER                    20 81/04/02
+BLAKE                MANAGER                    30 81/05/01
+TURNER               SALESMAN                   30 81/09/08
+MARTIN               SALESMAN                   30 81/09/28
+FORD                 ANALYST                    20 81/12/03
+JAMES                CLERK                      30 81/12/03
+SCOTT                ANALYST                    20 87/04/19
+ADAMS                CLERK                      20 87/05/23
+
+11 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,  job, deptno,hiredate
+  2* from emp where deptno >= 20 order by ename
+SQL> /
+
+ENAME                JOB                    DEPTNO HIREDATE
+-------------------- ------------------ ---------- --------
+ADAMS                CLERK                      20 87/05/23
+ALLEN                SALESMAN                   30 81/02/20
+BLAKE                MANAGER                    30 81/05/01
+FORD                 ANALYST                    20 81/12/03
+JAMES                CLERK                      30 81/12/03
+JONES                MANAGER                    20 81/04/02
+MARTIN               SALESMAN                   30 81/09/28
+SCOTT                ANALYST                    20 87/04/19
+SMITH                CLERK                      20 80/12/17
+TURNER               SALESMAN                   30 81/09/08
+WARD                 SALESMAN                   30 81/02/22
+
+11 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,sal,  job, deptno,hiredate
+  2* from emp where deptno >= 20 order by sal
+SQL> /
+
+ENAME                       SAL JOB                    DEPTNO HIREDATE
+-------------------- ---------- ------------------ ---------- --------
+JAMES                       950 CLERK                      30 81/12/03
+ADAMS                      1100 CLERK                      20 87/05/23
+WARD                       1250 SALESMAN                   30 81/02/22
+MARTIN                     1250 SALESMAN                   30 81/09/28
+TURNER                     1500 SALESMAN                   30 81/09/08
+ALLEN                      1600 SALESMAN                   30 81/02/20
+SMITH                      2000 CLERK                      20 80/12/17
+BLAKE                      2850 MANAGER                    30 81/05/01
+JONES                      2975 MANAGER                    20 81/04/02
+SCOTT                      3000 ANALYST                    20 87/04/19
+FORD                       3300 ANALYST                    20 81/12/03
+
+11 행이 선택되었습니다.
+
+SQL> select ename, sal*12 from emp order by sal*12;
+
+ENAME                    SAL*12
+-------------------- ----------
+JAMES                     11400
+ADAMS                     13200
+WARD                      15000
+MARTIN                    15000
+MILLER                    15600
+TURNER                    18000
+ALLEN                     19200
+SMITH                     24000
+BLAKE                     34200
+CLARK                     34200
+JONES                     35700
+
+ENAME                    SAL*12
+-------------------- ----------
+SCOTT                     36000
+FORD                      39600
+KING                      60000
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select ename, sal*12 annsal from emp order by annsal
+SQL> /
+
+ENAME                    ANNSAL
+-------------------- ----------
+JAMES                     11400
+ADAMS                     13200
+WARD                      15000
+MARTIN                    15000
+MILLER                    15600
+TURNER                    18000
+ALLEN                     19200
+SMITH                     24000
+BLAKE                     34200
+CLARK                     34200
+JONES                     35700
+
+ENAME                    ANNSAL
+-------------------- ----------
+SCOTT                     36000
+FORD                      39600
+KING                      60000
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select ename, sal*12 annsal from emp order by annsal desc
+SQL> /
+
+ENAME                    ANNSAL
+-------------------- ----------
+KING                      60000
+FORD                      39600
+SCOTT                     36000
+JONES                     35700
+CLARK                     34200
+BLAKE                     34200
+SMITH                     24000
+ALLEN                     19200
+TURNER                    18000
+MILLER                    15600
+WARD                      15000
+
+ENAME                    ANNSAL
+-------------------- ----------
+MARTIN                    15000
+ADAMS                     13200
+JAMES                     11400
+
+14 행이 선택되었습니다.
+
