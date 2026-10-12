@@ -396,3 +396,185 @@ SQL> select last_day(to_date('2026-02-01','yyyy-mm-dd')) from dual;
 LAST_DAY
 --------
 26/02/28
+
+SQL> select to_char(last_day(to_date('20260201','yyyymmdd')), 'yyyy-mm-dd dy')
+  2  from dual
+  3  ;
+
+TO_CHAR(LAST_DAY(TO_DATE('20
+----------------------------
+2026-02-28 토
+
+SQL> select to_char(sysdate, 'dy d') from dual;
+
+TO_CHAR(SYSD
+------------
+월 2
+
+SQL> select to_char(sysdate, 'dy d'), to_char(sysdate-1, 'dy d') from dual;
+
+TO_CHAR(SYSD TO_CHAR(SYSD
+------------ ------------
+월 2         일 1s
+
+SQL> select ename, to_char(hiredate, 'dy') day from
+  2  emp order by day;
+
+ENAME                DAY
+-------------------- --------
+BLAKE                금
+ALLEN                금
+JAMES                목
+JONES                목
+FORD                 목
+SMITH                수
+MARTIN               월
+WARD                 일
+SCOTT                일
+ADAMS                토
+MILLER               토
+
+ENAME                DAY
+-------------------- --------
+TURNER               화
+KING                 화
+CLARK                화
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename, hiredate, to_char(hiredate, 'dy') day from
+  2* emp order by day
+SQL> /
+
+ENAME                HIREDATE DAY
+-------------------- -------- --------
+BLAKE                81/05/01 금
+ALLEN                81/02/20 금
+JAMES                81/12/03 목
+JONES                81/04/02 목
+FORD                 81/12/03 목
+SMITH                80/12/17 수
+MARTIN               81/09/28 월
+WARD                 81/02/22 일
+SCOTT                87/04/19 일
+ADAMS                87/05/23 토
+MILLER               82/01/23 토
+
+ENAME                HIREDATE DAY
+-------------------- -------- --------
+TURNER               81/09/08 화
+KING                 81/11/17 화
+CLARK                81/06/09 화
+
+14 행이 선택되었습니다.
+
+SQL> select ename, sal, comm, nvl(comm, -1) from emp;
+
+ENAME                       SAL       COMM NVL(COMM,-1)
+-------------------- ---------- ---------- ------------
+SMITH                      2000                      -1
+ALLEN                      1600        300          300
+WARD                       1250        500          500
+JONES                      2975                      -1
+MARTIN                     1250       1400         1400
+BLAKE                      2850                      -1
+CLARK                      2850                      -1
+SCOTT                      3000                      -1
+KING                       5000                      -1
+TURNER                     1500          0            0
+ADAMS                      1100                      -1
+
+ENAME                       SAL       COMM NVL(COMM,-1)
+-------------------- ---------- ---------- ------------
+JAMES                       950                      -1
+FORD                       3300                      -1
+MILLER                     1300                      -1
+
+14 행이 선택되었습니다.
+
+SQL> select ename, sal*12 + comm from emp;
+
+ENAME                SAL*12+COMM
+-------------------- -----------
+SMITH
+ALLEN                      19500
+WARD                       15500
+JONES
+MARTIN                     16400
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER                     18000
+ADAMS
+
+ENAME                SAL*12+COMM
+-------------------- -----------
+JAMES
+FORD
+MILLER
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select ename, sal, comm, nvl(to_char(comm,'9.999'), 'No comition') from emp
+SQL> /
+
+ENAME                       SAL       COMM NVL(TO_CHAR(COMM,'9.99
+-------------------- ---------- ---------- ----------------------
+SMITH                      2000            No comition
+ALLEN                      1600        300 ######
+WARD                       1250        500 ######
+JONES                      2975            No comition
+MARTIN                     1250       1400 ######
+BLAKE                      2850            No comition
+CLARK                      2850            No comition
+SCOTT                      3000            No comition
+KING                       5000            No comition
+TURNER                     1500          0   .000
+ADAMS                      1100            No comition
+
+ENAME                       SAL       COMM NVL(TO_CHAR(COMM,'9.99
+-------------------- ---------- ---------- ----------------------
+JAMES                       950            No comition
+FORD                       3300            No comition
+MILLER                     1300            No comition
+
+14 행이 선택되었습니다.
+  1  select ename, sal, JOB,SAL,DECODE(SAL, 'ANALYST', sal*1.1,
+  2  'CLERK',SAL*1.15,'MANEGER',SAL*1.2, SAL) REVISERED_SALRY
+  3* FROM EMP
+SQL> /
+
+ENAME                       SAL JOB                       SAL REVISERED_SALRY
+-------------------- ---------- ------------------ ---------- ---------------
+SMITH                      2000 CLERK                    2000            2000
+ALLEN                      1600 SALESMAN                 1600            1600
+WARD                       1250 SALESMAN                 1250            1250
+JONES                      2975 MANAGER                  2975            2975
+MARTIN                     1250 SALESMAN                 1250            1250
+BLAKE                      2850 MANAGER                  2850            2850
+CLARK                      2850 MANAGER                  2850            2850
+SCOTT                      3000 ANALYST                  3000            3000
+KING                       5000 PRESIDENT                5000            5000
+TURNER                     1500 SALESMAN                 1500            1500
+ADAMS                      1100 CLERK                    1100            1100
+
+ENAME                       SAL JOB                       SAL REVISERED_SALRY
+-------------------- ---------- ------------------ ---------- ---------------
+JAMES                       950 CLERK                     950             950
+FORD                       3300 ANALYST                  3300            3300
+MILLER                     1300 CLERK                    1300            1300
+
+14 행이 선택되었습니다.
+
+SQL> list
+  1  select ename, sal, JOB,SAL,DECODE(SAL, 'ANALYST', sal*1.1,
+  2  'CLERK',SAL*1.15,'MANEGER',SAL*1.2, SAL) REVISERED_SALRY
+  3* FROM EMP
+SQL> edit
