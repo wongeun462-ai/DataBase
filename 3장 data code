@@ -138,3 +138,155 @@ SQL> select to_char(sysdate, 'yyyy-mm-dd hh: mm: ss am')
 TO_CHAR(SYSDATE,'YYYY-MM-DDHH:MM:SSAM')
 --------------------------------------------------------
 2026-10-12 02: 10: 25 오후
+
+SQL> select ename, to_char(sal, '999,999,99') from emp;
+
+ENAME                TO_CHAR(SAL,'999,999,9
+-------------------- ----------------------
+SMITH                      20,00
+ALLEN                      16,00
+WARD                       12,50
+JONES                      29,75
+MARTIN                     12,50
+BLAKE                      28,50
+CLARK                      28,50
+SCOTT                      30,00
+KING                       50,00
+TURNER                     15,00
+ADAMS                      11,00
+
+ENAME                TO_CHAR(SAL,'999,999,9
+-------------------- ----------------------
+JAMES                       9,50
+FORD                       33,00
+MILLER                     13,00
+
+14 행이 선택되었습니다.
+
+SQL> select ename, to_char(sal, '999,999,999') from emp;
+
+ENAME                TO_CHAR(SAL,'999,999,999
+-------------------- ------------------------
+SMITH                       2,000
+ALLEN                       1,600
+WARD                        1,250
+JONES                       2,975
+MARTIN                      1,250
+BLAKE                       2,850
+CLARK                       2,850
+SCOTT                       3,000
+KING                        5,000
+TURNER                      1,500
+ADAMS                       1,100
+
+ENAME                TO_CHAR(SAL,'999,999,999
+-------------------- ------------------------
+JAMES                         950
+FORD                        3,300
+MILLER                      1,300
+
+14 행이 선택되었습니다.
+
+SQL> select ename, to_char(sal, '999,999,99') from emp;
+
+ENAME                TO_CHAR(SAL,'999,999,9
+-------------------- ----------------------
+SMITH                      20,00
+ALLEN                      16,00
+WARD                       12,50
+JONES                      29,75
+MARTIN                     12,50
+BLAKE                      28,50
+CLARK                      28,50
+SCOTT                      30,00
+KING                       50,00
+TURNER                     15,00
+ADAMS                      11,00
+
+ENAME                TO_CHAR(SAL,'999,999,9
+-------------------- ----------------------
+JAMES                       9,50
+FORD                       33,00
+MILLER                     13,00
+
+14 행이 선택되었습니다.
+
+SQL> select ename, to_char(sal, '999,999,9') from emp;
+
+ENAME                TO_CHAR(SAL,'999,999
+-------------------- --------------------
+SMITH                     200,0
+ALLEN                     160,0
+WARD                      125,0
+JONES                     297,5
+MARTIN                    125,0
+BLAKE                     285,0
+CLARK                     285,0
+SCOTT                     300,0
+KING                      500,0
+TURNER                    150,0
+ADAMS                     110,0
+
+ENAME                TO_CHAR(SAL,'999,999
+-------------------- --------------------
+JAMES                      95,0
+FORD                      330,0
+MILLER                    130,0
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select ename, to_char(sal, '9,999') from emp
+SQL> /
+
+ENAME                TO_CHAR(SAL,
+-------------------- ------------
+SMITH                 2,000
+ALLEN                 1,600
+WARD                  1,250
+JONES                 2,975
+MARTIN                1,250
+BLAKE                 2,850
+CLARK                 2,850
+SCOTT                 3,000
+KING                  5,000
+TURNER                1,500
+ADAMS                 1,100
+
+ENAME                TO_CHAR(SAL,
+-------------------- ------------
+JAMES                   950
+FORD                  3,300
+MILLER                1,300
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select ename, to_char(sal, '999') from emp
+SQL> /
+
+ENAME                TO_CHAR(
+-------------------- --------
+SMITH                ####
+ALLEN                ####
+WARD                 ####
+JONES                ####
+MARTIN               ####
+BLAKE                ####
+CLARK                ####
+SCOTT                ####
+KING                 ####
+TURNER               ####
+ADAMS                ####
+
+ENAME                TO_CHAR(
+-------------------- --------
+JAMES                 950
+FORD                 ####
+MILLER               ####
+
+14 행이 선택되었습니다.
