@@ -390,3 +390,9 @@ TO_CHAR(SYSDATE,'YYYYMMDDDY')
 SQL> select to_char(next_day(sysdate, '월'),'yyyy-mm-dd day') from dual;
 
 TO_CHAR(NEXT_DAY(SYSDATE,'월'),'YYYY-MM-DDDAY'
+
+SQL> select last_day(to_date('2026-02-01','yyyy-mm-dd')) from dual;
+
+LAST_DAY
+--------
+26/02/28
