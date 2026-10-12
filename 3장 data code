@@ -1,0 +1,108 @@
+SQL> select sysdate
+  2  from dual;
+
+SYSDATE
+--------
+26/10/12
+
+SQL> select sysdate + 100 from dual;
+
+SYSDATE+
+--------
+27/01/20
+
+
+SQL> select * from emp where hidedate='81/04/02';
+select * from emp where hidedate='81/04/02'
+  
+                        
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7566 JONES                MANAGER                  7839 81/04/02
+      2975                    20*
+
+
+
+SQL> select * from emp where hiredate='81/04/02';
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7566 JONES                MANAGER                  7839 81/04/02
+      2975                    20
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select * from emp where hiredate='1981-04-02'
+SQL> /
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7566 JONES                MANAGER                  7839 81/04/02
+      2975                    20
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select * from emp where hiredate='19810402'
+SQL> /
+
+     EMPNO ENAME                JOB                       MGR HIREDATE
+---------- -------------------- ------------------ ---------- --------
+       SAL       COMM     DEPTNO
+---------- ---------- ----------
+      7566 JONES                MANAGER                  7839 81/04/02
+
+SQL> select ename,hiredate from emp;
+
+ENAME                HIREDATE
+-------------------- --------
+SMITH                80/12/17
+ALLEN                81/02/20
+WARD                 81/02/22
+JONES                81/04/02
+MARTIN               81/09/28
+BLAKE                81/05/01
+CLARK                81/06/09
+SCOTT                87/04/19
+KING                 81/11/17
+TURNER               81/09/08
+ADAMS                87/05/23
+
+ENAME                HIREDATE
+-------------------- --------
+JAMES                81/12/03
+FORD                 81/12/03
+MILLER               82/01/23
+
+14 행이 선택되었습니다.
+
+SQL> select ename, to_char(hiredate, 'yyyy-mm-dd hh: mm: ss')
+  2  from emp;
+
+ENAME                TO_CHAR(HIREDATE,'YYYY-MM-DDHH:MM:SS')
+-------------------- ------------------------------------------
+SMITH                1980-12-17 12: 12: 00
+ALLEN                1981-02-20 12: 02: 00
+WARD                 1981-02-22 12: 02: 00
+JONES                1981-04-02 12: 04: 00
+MARTIN               1981-09-28 12: 09: 00
+BLAKE                1981-05-01 12: 05: 00
+CLARK                1981-06-09 12: 06: 00
+SCOTT                1987-04-19 12: 04: 00
+KING                 1981-11-17 12: 11: 00
+TURNER               1981-09-08 12: 09: 00
+ADAMS                1987-05-23 12: 05: 00
+
+ENAME                TO_CHAR(HIREDATE,'YYYY-MM-DDHH:MM:SS')
+-------------------- ------------------------------------------
+JAMES                1981-12-03 12: 12: 00
+FORD                 1981-12-03 12: 12: 00
+MILLER               1982-01-23 12: 01: 00
+
+14 행이 선택되었습니다.
