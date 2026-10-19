@@ -1,0 +1,480 @@
+SQL> select * from tab;
+
+TNAME                                                        TABTYPE
+------------------------------------------------------------ --------------
+ CLUSTERID
+----------
+DEPT                                                         TABLE
+
+
+EMP                                                          TABLE
+
+
+SALGRADE                                                     TABLE
+
+
+
+SQL> desc dept;
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                             NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC
+---------- ---------------------------- --------------------------
+        10 ACCOUNTING                   NEW YORK
+        20 RESEARCH                     DALLAS
+        30 SALES                        CHICAGO
+        40 OPERATIONS                   BOSTON
+
+SQL> desc emp;
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select deptno from emp where ename='SMITH';
+
+    DEPTNO
+----------
+        20
+
+SQL> SELECT * FROM DEPT WHERE DEPTNO=20;
+
+    DEPTNO DNAME                        LOC
+---------- ---------------------------- --------------------------
+        20 RESEARCH                     DALLAS
+
+SQL> DESC EMP;
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> DESC DEPT;
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                             NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+
+
+SQL> SELECT EMPNO,ENAME,DEPTNO FROM EMP;
+
+     EMPNO ENAME                    DEPTNO
+---------- -------------------- ----------
+      7369 SMITH                        20
+      7499 ALLEN                        30
+      7521 WARD                         30
+      7566 JONES                        20
+      7654 MARTIN                       30
+      7698 BLAKE                        30
+      7782 CLARK                        10
+      7788 SCOTT                        20
+      7839 KING                         10
+      7844 TURNER                       30
+      7876 ADAMS                        20
+
+     EMPNO ENAME                    DEPTNO
+---------- -------------------- ----------
+      7900 JAMES                        30
+      7902 FORD                         20
+      7934 MILLER                       10
+
+14 행이 선택되었습니다.
+
+SQL> SELECT * FROM DEPT;
+
+    DEPTNO DNAME                        LOC
+---------- ---------------------------- --------------------------
+        10 ACCOUNTING                   NEW YORK
+        20 RESEARCH                     DALLAS
+        30 SALES                        CHICAGO
+        40 OPERATIONS                   BOSTON
+
+SQL> SELECT EMPNO,ENAME,DEPTNO FROM EMP;
+
+     EMPNO ENAME                    DEPTNO
+---------- -------------------- ----------
+      7369 SMITH                        20
+      7499 ALLEN                        30
+      7521 WARD                         30
+      7566 JONES                        20
+      7654 MARTIN                       30
+      7698 BLAKE                        30
+      7782 CLARK                        10
+      7788 SCOTT                        20
+      7839 KING                         10
+      7844 TURNER                       30
+      7876 ADAMS                        20
+
+     EMPNO ENAME                    DEPTNO
+---------- -------------------- ----------
+      7900 JAMES                        30
+      7902 FORD                         20
+      7934 MILLER                       10
+
+14 행이 선택되었습니다.
+
+SQL> SELECT ENAME, DNAME FROM DEPT, EMP;
+
+ENAME                DNAME
+-------------------- ----------------------------
+SMITH                ACCOUNTING
+ALLEN                ACCOUNTING
+WARD                 ACCOUNTING
+JONES                ACCOUNTING
+MARTIN               ACCOUNTING
+BLAKE                ACCOUNTING
+CLARK                ACCOUNTING
+SCOTT                ACCOUNTING
+KING                 ACCOUNTING
+TURNER               ACCOUNTING
+ADAMS                ACCOUNTING
+
+ENAME                DNAME
+-------------------- ----------------------------
+JAMES                ACCOUNTING
+FORD                 ACCOUNTING
+MILLER               ACCOUNTING
+SMITH                RESEARCH
+ALLEN                RESEARCH
+WARD                 RESEARCH
+JONES                RESEARCH
+MARTIN               RESEARCH
+BLAKE                RESEARCH
+CLARK                RESEARCH
+SCOTT                RESEARCH
+
+ENAME                DNAME
+-------------------- ----------------------------
+KING                 RESEARCH
+TURNER               RESEARCH
+ADAMS                RESEARCH
+JAMES                RESEARCH
+FORD                 RESEARCH
+MILLER               RESEARCH
+SMITH                SALES
+ALLEN                SALES
+WARD                 SALES
+JONES                SALES
+MARTIN               SALES
+
+ENAME                DNAME
+-------------------- ----------------------------
+BLAKE                SALES
+CLARK                SALES
+SCOTT                SALES
+KING                 SALES
+TURNER               SALES
+ADAMS                SALES
+JAMES                SALES
+FORD                 SALES
+MILLER               SALES
+SMITH                OPERATIONS
+ALLEN                OPERATIONS
+
+ENAME                DNAME
+-------------------- ----------------------------
+WARD                 OPERATIONS
+JONES                OPERATIONS
+MARTIN               OPERATIONS
+BLAKE                OPERATIONS
+CLARK                OPERATIONS
+SCOTT                OPERATIONS
+KING                 OPERATIONS
+TURNER               OPERATIONS
+ADAMS                OPERATIONS
+JAMES                OPERATIONS
+FORD                 OPERATIONS
+
+ENAME                DNAME
+-------------------- ----------------------------
+MILLER               OPERATIONS
+
+56 행이 선택되었습니다.
+
+
+SQL> select empno,ename, emp.deptno, dept.deptno,dept.dname,dept.loc from
+  2  emp,dept;
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7369 SMITH                        20         10
+ACCOUNTING                   NEW YORK
+
+      7499 ALLEN                        30         10
+ACCOUNTING                   NEW YORK
+
+      7521 WARD                         30         10
+ACCOUNTING                   NEW YORK
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7566 JONES                        20         10
+ACCOUNTING                   NEW YORK
+
+      7654 MARTIN                       30         10
+ACCOUNTING                   NEW YORK
+
+      7698 BLAKE                        30         10
+ACCOUNTING                   NEW YORK
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7782 CLARK                        10         10
+ACCOUNTING                   NEW YORK
+
+      7788 SCOTT                        20         10
+ACCOUNTING                   NEW YORK
+
+      7839 KING                         10         10
+ACCOUNTING                   NEW YORK
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7844 TURNER                       30         10
+ACCOUNTING                   NEW YORK
+
+      7876 ADAMS                        20         10
+ACCOUNTING                   NEW YORK
+
+      7900 JAMES                        30         10
+ACCOUNTING                   NEW YORK
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7902 FORD                         20         10
+ACCOUNTING                   NEW YORK
+
+      7934 MILLER                       10         10
+ACCOUNTING                   NEW YORK
+
+      7369 SMITH                        20         20
+RESEARCH                     DALLAS
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7499 ALLEN                        30         20
+RESEARCH                     DALLAS
+
+      7521 WARD                         30         20
+RESEARCH                     DALLAS
+
+      7566 JONES                        20         20
+RESEARCH                     DALLAS
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7654 MARTIN                       30         20
+RESEARCH                     DALLAS
+
+      7698 BLAKE                        30         20
+RESEARCH                     DALLAS
+
+      7782 CLARK                        10         20
+RESEARCH                     DALLAS
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7788 SCOTT                        20         20
+RESEARCH                     DALLAS
+
+      7839 KING                         10         20
+RESEARCH                     DALLAS
+
+      7844 TURNER                       30         20
+RESEARCH                     DALLAS
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7876 ADAMS                        20         20
+RESEARCH                     DALLAS
+
+      7900 JAMES                        30         20
+RESEARCH                     DALLAS
+
+      7902 FORD                         20         20
+RESEARCH                     DALLAS
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7934 MILLER                       10         20
+RESEARCH                     DALLAS
+
+      7369 SMITH                        20         30
+SALES                        CHICAGO
+
+      7499 ALLEN                        30         30
+SALES                        CHICAGO
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7521 WARD                         30         30
+SALES                        CHICAGO
+
+      7566 JONES                        20         30
+SALES                        CHICAGO
+
+      7654 MARTIN                       30         30
+SALES                        CHICAGO
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7698 BLAKE                        30         30
+SALES                        CHICAGO
+
+      7782 CLARK                        10         30
+SALES                        CHICAGO
+
+      7788 SCOTT                        20         30
+SALES                        CHICAGO
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7839 KING                         10         30
+SALES                        CHICAGO
+
+      7844 TURNER                       30         30
+SALES                        CHICAGO
+
+      7876 ADAMS                        20         30
+SALES                        CHICAGO
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7900 JAMES                        30         30
+SALES                        CHICAGO
+
+      7902 FORD                         20         30
+SALES                        CHICAGO
+
+      7934 MILLER                       10         30
+SALES                        CHICAGO
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7369 SMITH                        20         40
+OPERATIONS                   BOSTON
+
+      7499 ALLEN                        30         40
+OPERATIONS                   BOSTON
+
+      7521 WARD                         30         40
+OPERATIONS                   BOSTON
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7566 JONES                        20         40
+OPERATIONS                   BOSTON
+
+      7654 MARTIN                       30         40
+OPERATIONS                   BOSTON
+
+      7698 BLAKE                        30         40
+OPERATIONS                   BOSTON
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7782 CLARK                        10         40
+OPERATIONS                   BOSTON
+
+      7788 SCOTT                        20         40
+OPERATIONS                   BOSTON
+
+      7839 KING                         10         40
+OPERATIONS                   BOSTON
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7844 TURNER                       30         40
+OPERATIONS                   BOSTON
+
+      7876 ADAMS                        20         40
+OPERATIONS                   BOSTON
+
+      7900 JAMES                        30         40
+OPERATIONS                   BOSTON
+
+
+     EMPNO ENAME                    DEPTNO     DEPTNO
+---------- -------------------- ---------- ----------
+DNAME                        LOC
+---------------------------- --------------------------
+      7902 FORD                         20         40
+OPERATIONS                   BOSTON
+
+      7934 MILLER                       10         40
+OPERATIONS                   BOSTON
+
+
+56 행이 선택되었습니다.
