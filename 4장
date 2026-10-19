@@ -478,3 +478,54 @@ OPERATIONS                   BOSTON
 
 
 56 행이 선택되었습니다.
+
+SQL> select ename, sal, grade from emp, salgrade
+  2  where sal >= losal and sal <= hisal;
+
+ENAME                       SAL      GRADE
+-------------------- ---------- ----------
+JAMES                       950          1
+ADAMS                      1100          1
+WARD                       1250          2
+MARTIN                     1250          2
+MILLER                     1300          2
+TURNER                     1500          3
+ALLEN                      1600          3
+SMITH                      2000          3
+BLAKE                      2850          4
+CLARK                      2850          4
+JONES                      2975          4
+
+ENAME                       SAL      GRADE
+-------------------- ---------- ----------
+SCOTT                      3000          4
+FORD                       3300          5
+KING                       5000          5
+
+
+SQL> select ename, d.deptno, dname from emp e, dept d
+  2  where e.deptno=d.deptno order by d.deptno;
+
+ENAME                    DEPTNO DNAME
+-------------------- ---------- ----------------------------
+CLARK                        10 ACCOUNTING
+KING                         10 ACCOUNTING
+MILLER                       10 ACCOUNTING
+JONES                        20 RESEARCH
+FORD                         20 RESEARCH
+ADAMS                        20 RESEARCH
+SMITH                        20 RESEARCH
+SCOTT                        20 RESEARCH
+WARD                         30 SALES
+TURNER                       30 SALES
+ALLEN                        30 SALES
+
+ENAME                    DEPTNO DNAME
+-------------------- ---------- ----------------------------
+JAMES                        30 SALES
+BLAKE                        30 SALES
+MARTIN                       30 SALES
+
+14 행이 선택되었습니다.
+
+
