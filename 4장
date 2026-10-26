@@ -806,3 +806,617 @@ SQL> select e.empno,e.ename,e.mgr,m.empno,m.ename from emp e,emp m;
 
 196 행이 선택되었습니다.
 
+SQL> select ename, job,sal,emp.deptno,dept.deptno,dept.dname from emp,dept;
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+SMITH                CLERK                    2000         20         10
+ACCOUNTING
+
+ALLEN                SALESMAN                 1600         30         10
+ACCOUNTING
+
+WARD                 SALESMAN                 1250         30         10
+ACCOUNTING
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+JONES                MANAGER                  2975         20         10
+ACCOUNTING
+
+MARTIN               SALESMAN                 1250         30         10
+ACCOUNTING
+
+BLAKE                MANAGER                  2850         30         10
+ACCOUNTING
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+CLARK                MANAGER                  2850         10         10
+ACCOUNTING
+
+SCOTT                ANALYST                  3000         20         10
+ACCOUNTING
+
+KING                 PRESIDENT                5000         10         10
+ACCOUNTING
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+TURNER               SALESMAN                 1500         30         10
+ACCOUNTING
+
+ADAMS                CLERK                    1100         20         10
+ACCOUNTING
+
+JAMES                CLERK                     950         30         10
+ACCOUNTING
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+FORD                 ANALYST                  3300         20         10
+ACCOUNTING
+
+MILLER               CLERK                    1300         10         10
+ACCOUNTING
+
+SMITH                CLERK                    2000         20         20
+RESEARCH
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+ALLEN                SALESMAN                 1600         30         20
+RESEARCH
+
+WARD                 SALESMAN                 1250         30         20
+RESEARCH
+
+JONES                MANAGER                  2975         20         20
+RESEARCH
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+MARTIN               SALESMAN                 1250         30         20
+RESEARCH
+
+BLAKE                MANAGER                  2850         30         20
+RESEARCH
+
+CLARK                MANAGER                  2850         10         20
+RESEARCH
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+SCOTT                ANALYST                  3000         20         20
+RESEARCH
+
+KING                 PRESIDENT                5000         10         20
+RESEARCH
+
+TURNER               SALESMAN                 1500         30         20
+RESEARCH
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+ADAMS                CLERK                    1100         20         20
+RESEARCH
+
+JAMES                CLERK                     950         30         20
+RESEARCH
+
+FORD                 ANALYST                  3300         20         20
+RESEARCH
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+MILLER               CLERK                    1300         10         20
+RESEARCH
+
+SMITH                CLERK                    2000         20         30
+SALES
+
+ALLEN                SALESMAN                 1600         30         30
+SALES
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+WARD                 SALESMAN                 1250         30         30
+SALES
+
+JONES                MANAGER                  2975         20         30
+SALES
+
+MARTIN               SALESMAN                 1250         30         30
+SALES
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+BLAKE                MANAGER                  2850         30         30
+SALES
+
+CLARK                MANAGER                  2850         10         30
+SALES
+
+SCOTT                ANALYST                  3000         20         30
+SALES
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+KING                 PRESIDENT                5000         10         30
+SALES
+
+TURNER               SALESMAN                 1500         30         30
+SALES
+
+ADAMS                CLERK                    1100         20         30
+SALES
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+JAMES                CLERK                     950         30         30
+SALES
+
+FORD                 ANALYST                  3300         20         30
+SALES
+
+MILLER               CLERK                    1300         10         30
+SALES
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+SMITH                CLERK                    2000         20         40
+OPERATIONS
+
+ALLEN                SALESMAN                 1600         30         40
+OPERATIONS
+
+WARD                 SALESMAN                 1250         30         40
+OPERATIONS
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+JONES                MANAGER                  2975         20         40
+OPERATIONS
+
+MARTIN               SALESMAN                 1250         30         40
+OPERATIONS
+
+BLAKE                MANAGER                  2850         30         40
+OPERATIONS
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+CLARK                MANAGER                  2850         10         40
+OPERATIONS
+
+SCOTT                ANALYST                  3000         20         40
+OPERATIONS
+
+KING                 PRESIDENT                5000         10         40
+OPERATIONS
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+TURNER               SALESMAN                 1500         30         40
+OPERATIONS
+
+ADAMS                CLERK                    1100         20         40
+OPERATIONS
+
+JAMES                CLERK                     950         30         40
+OPERATIONS
+
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO
+-------------------- ------------------ ---------- ---------- ----------
+DNAME
+----------------------------
+FORD                 ANALYST                  3300         20         40
+OPERATIONS
+
+MILLER               CLERK                    1300         10         40
+OPERATIONS
+
+
+56 행이 선택되었습니다.
+
+SQL> set line 200
+SQL> /
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+SMITH                CLERK                    2000         20         10 ACCOUNTING
+ALLEN                SALESMAN                 1600         30         10 ACCOUNTING
+WARD                 SALESMAN                 1250         30         10 ACCOUNTING
+JONES                MANAGER                  2975         20         10 ACCOUNTING
+MARTIN               SALESMAN                 1250         30         10 ACCOUNTING
+BLAKE                MANAGER                  2850         30         10 ACCOUNTING
+CLARK                MANAGER                  2850         10         10 ACCOUNTING
+SCOTT                ANALYST                  3000         20         10 ACCOUNTING
+KING                 PRESIDENT                5000         10         10 ACCOUNTING
+TURNER               SALESMAN                 1500         30         10 ACCOUNTING
+ADAMS                CLERK                    1100         20         10 ACCOUNTING
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+JAMES                CLERK                     950         30         10 ACCOUNTING
+FORD                 ANALYST                  3300         20         10 ACCOUNTING
+MILLER               CLERK                    1300         10         10 ACCOUNTING
+SMITH                CLERK                    2000         20         20 RESEARCH
+ALLEN                SALESMAN                 1600         30         20 RESEARCH
+WARD                 SALESMAN                 1250         30         20 RESEARCH
+JONES                MANAGER                  2975         20         20 RESEARCH
+MARTIN               SALESMAN                 1250         30         20 RESEARCH
+BLAKE                MANAGER                  2850         30         20 RESEARCH
+CLARK                MANAGER                  2850         10         20 RESEARCH
+SCOTT                ANALYST                  3000         20         20 RESEARCH
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+KING                 PRESIDENT                5000         10         20 RESEARCH
+TURNER               SALESMAN                 1500         30         20 RESEARCH
+ADAMS                CLERK                    1100         20         20 RESEARCH
+JAMES                CLERK                     950         30         20 RESEARCH
+FORD                 ANALYST                  3300         20         20 RESEARCH
+MILLER               CLERK                    1300         10         20 RESEARCH
+SMITH                CLERK                    2000         20         30 SALES
+ALLEN                SALESMAN                 1600         30         30 SALES
+WARD                 SALESMAN                 1250         30         30 SALES
+JONES                MANAGER                  2975         20         30 SALES
+MARTIN               SALESMAN                 1250         30         30 SALES
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+BLAKE                MANAGER                  2850         30         30 SALES
+CLARK                MANAGER                  2850         10         30 SALES
+SCOTT                ANALYST                  3000         20         30 SALES
+KING                 PRESIDENT                5000         10         30 SALES
+TURNER               SALESMAN                 1500         30         30 SALES
+ADAMS                CLERK                    1100         20         30 SALES
+JAMES                CLERK                     950         30         30 SALES
+FORD                 ANALYST                  3300         20         30 SALES
+MILLER               CLERK                    1300         10         30 SALES
+SMITH                CLERK                    2000         20         40 OPERATIONS
+ALLEN                SALESMAN                 1600         30         40 OPERATIONS
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+WARD                 SALESMAN                 1250         30         40 OPERATIONS
+JONES                MANAGER                  2975         20         40 OPERATIONS
+MARTIN               SALESMAN                 1250         30         40 OPERATIONS
+BLAKE                MANAGER                  2850         30         40 OPERATIONS
+CLARK                MANAGER                  2850         10         40 OPERATIONS
+SCOTT                ANALYST                  3000         20         40 OPERATIONS
+KING                 PRESIDENT                5000         10         40 OPERATIONS
+TURNER               SALESMAN                 1500         30         40 OPERATIONS
+ADAMS                CLERK                    1100         20         40 OPERATIONS
+JAMES                CLERK                     950         30         40 OPERATIONS
+FORD                 ANALYST                  3300         20         40 OPERATIONS
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+MILLER               CLERK                    1300         10         40 OPERATIONS
+
+56 행이 선택되었습니다.
+
+SQL> select ename,job,sal,emp.deptno,dept.deptno,dept.dname from emp,dept
+  2  where emp.deptno=dept.deptno
+  3  ;
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+SMITH                CLERK                    2000         20         20 RESEARCH
+ALLEN                SALESMAN                 1600         30         30 SALES
+WARD                 SALESMAN                 1250         30         30 SALES
+JONES                MANAGER                  2975         20         20 RESEARCH
+MARTIN               SALESMAN                 1250         30         30 SALES
+BLAKE                MANAGER                  2850         30         30 SALES
+CLARK                MANAGER                  2850         10         10 ACCOUNTING
+SCOTT                ANALYST                  3000         20         20 RESEARCH
+KING                 PRESIDENT                5000         10         10 ACCOUNTING
+TURNER               SALESMAN                 1500         30         30 SALES
+ADAMS                CLERK                    1100         20         20 RESEARCH
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+JAMES                CLERK                     950         30         30 SALES
+FORD                 ANALYST                  3300         20         20 RESEARCH
+MILLER               CLERK                    1300         10         10 ACCOUNTING
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,job,sal,emp.deptno,dept.deptno,dept.dname
+  2  from emp
+  3* inner join dept on emp.deptno=dept.deptno
+SQL> /
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+SMITH                CLERK                    2000         20         20 RESEARCH
+ALLEN                SALESMAN                 1600         30         30 SALES
+WARD                 SALESMAN                 1250         30         30 SALES
+JONES                MANAGER                  2975         20         20 RESEARCH
+MARTIN               SALESMAN                 1250         30         30 SALES
+BLAKE                MANAGER                  2850         30         30 SALES
+CLARK                MANAGER                  2850         10         10 ACCOUNTING
+SCOTT                ANALYST                  3000         20         20 RESEARCH
+KING                 PRESIDENT                5000         10         10 ACCOUNTING
+TURNER               SALESMAN                 1500         30         30 SALES
+ADAMS                CLERK                    1100         20         20 RESEARCH
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+JAMES                CLERK                     950         30         30 SALES
+FORD                 ANALYST                  3300         20         20 RESEARCH
+MILLER               CLERK                    1300         10         10 ACCOUNTING
+
+14 행이 선택되었습니다.
+
+SQL> /
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+SMITH                CLERK                    2000         20         20 RESEARCH
+ALLEN                SALESMAN                 1600         30         30 SALES
+WARD                 SALESMAN                 1250         30         30 SALES
+JONES                MANAGER                  2975         20         20 RESEARCH
+MARTIN               SALESMAN                 1250         30         30 SALES
+BLAKE                MANAGER                  2850         30         30 SALES
+CLARK                MANAGER                  2850         10         10 ACCOUNTING
+SCOTT                ANALYST                  3000         20         20 RESEARCH
+KING                 PRESIDENT                5000         10         10 ACCOUNTING
+TURNER               SALESMAN                 1500         30         30 SALES
+ADAMS                CLERK                    1100         20         20 RESEARCH
+
+ENAME                JOB                       SAL     DEPTNO     DEPTNO DNAME
+-------------------- ------------------ ---------- ---------- ---------- ----------------------------
+JAMES                CLERK                     950         30         30 SALES
+FORD                 ANALYST                  3300         20         20 RESEARCH
+MILLER               CLERK                    1300         10         10 ACCOUNTING
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,job,sal,emp.deptno,salgrade.grade from emp
+  2*  join salgrade on emp.sal >= salgrade.losal and emp.sal <= salgrade.hisal
+SQL> /
+
+ENAME                JOB                       SAL     DEPTNO      GRADE
+-------------------- ------------------ ---------- ---------- ----------
+JAMES                CLERK                     950         30          1
+ADAMS                CLERK                    1100         20          1
+WARD                 SALESMAN                 1250         30          2
+MARTIN               SALESMAN                 1250         30          2
+MILLER               CLERK                    1300         10          2
+TURNER               SALESMAN                 1500         30          3
+ALLEN                SALESMAN                 1600         30          3
+SMITH                CLERK                    2000         20          3
+BLAKE                MANAGER                  2850         30          4
+CLARK                MANAGER                  2850         10          4
+JONES                MANAGER                  2975         20          4
+
+ENAME                JOB                       SAL     DEPTNO      GRADE
+-------------------- ------------------ ---------- ---------- ----------
+SCOTT                ANALYST                  3000         20          4
+FORD                 ANALYST                  3300         20          5
+KING                 PRESIDENT                5000         10          5
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select empno,ename,job,sal, emp.deptno,dname,loc
+  2  from emp
+  3  left outer join dept
+  4* on emp.deptno=dept.deptno
+SQL> /
+
+     EMPNO ENAME                JOB                       SAL     DEPTNO DNAME                        LOC
+---------- -------------------- ------------------ ---------- ---------- ---------------------------- --------------------------
+      7934 MILLER               CLERK                    1300         10 ACCOUNTING                   NEW YORK
+      7839 KING                 PRESIDENT                5000         10 ACCOUNTING                   NEW YORK
+      7782 CLARK                MANAGER                  2850         10 ACCOUNTING                   NEW YORK
+      7902 FORD                 ANALYST                  3300         20 RESEARCH                     DALLAS
+      7876 ADAMS                CLERK                    1100         20 RESEARCH                     DALLAS
+      7788 SCOTT                ANALYST                  3000         20 RESEARCH                     DALLAS
+      7566 JONES                MANAGER                  2975         20 RESEARCH                     DALLAS
+      7369 SMITH                CLERK                    2000         20 RESEARCH                     DALLAS
+      7900 JAMES                CLERK                     950         30 SALES                        CHICAGO
+      7844 TURNER               SALESMAN                 1500         30 SALES                        CHICAGO
+      7698 BLAKE                MANAGER                  2850         30 SALES                        CHICAGO
+
+     EMPNO ENAME                JOB                       SAL     DEPTNO DNAME                        LOC
+---------- -------------------- ------------------ ---------- ---------- ---------------------------- --------------------------
+      7654 MARTIN               SALESMAN                 1250         30 SALES                        CHICAGO
+      7521 WARD                 SALESMAN                 1250         30 SALES                        CHICAGO
+      7499 ALLEN                SALESMAN                 1600         30 SALES                        CHICAGO
+
+14 행이 선택되었습니다.
+
+SQL> select ename,job,sal,emp.deptno,dname,loc
+  2  from dept
+  3  left outer join emp
+  4  on emp.deptno=dept.deptno;
+
+ENAME                JOB                       SAL     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- ---------------------------- --------------------------
+SMITH                CLERK                    2000         20 RESEARCH                     DALLAS
+ALLEN                SALESMAN                 1600         30 SALES                        CHICAGO
+WARD                 SALESMAN                 1250         30 SALES                        CHICAGO
+JONES                MANAGER                  2975         20 RESEARCH                     DALLAS
+MARTIN               SALESMAN                 1250         30 SALES                        CHICAGO
+BLAKE                MANAGER                  2850         30 SALES                        CHICAGO
+CLARK                MANAGER                  2850         10 ACCOUNTING                   NEW YORK
+SCOTT                ANALYST                  3000         20 RESEARCH                     DALLAS
+KING                 PRESIDENT                5000         10 ACCOUNTING                   NEW YORK
+TURNER               SALESMAN                 1500         30 SALES                        CHICAGO
+ADAMS                CLERK                    1100         20 RESEARCH                     DALLAS
+
+ENAME                JOB                       SAL     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- ---------------------------- --------------------------
+JAMES                CLERK                     950         30 SALES                        CHICAGO
+FORD                 ANALYST                  3300         20 RESEARCH                     DALLAS
+MILLER               CLERK                    1300         10 ACCOUNTING                   NEW YORK
+                                                              OPERATIONS                   BOSTON
+
+15 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,job,sal,emp.deptno,dname,loc
+  2  from emp
+  3  right outer join dept
+  4* on emp.deptno=dept.deptno
+SQL> /
+
+ENAME                JOB                       SAL     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- ---------------------------- --------------------------
+SMITH                CLERK                    2000         20 RESEARCH                     DALLAS
+ALLEN                SALESMAN                 1600         30 SALES                        CHICAGO
+WARD                 SALESMAN                 1250         30 SALES                        CHICAGO
+JONES                MANAGER                  2975         20 RESEARCH                     DALLAS
+MARTIN               SALESMAN                 1250         30 SALES                        CHICAGO
+BLAKE                MANAGER                  2850         30 SALES                        CHICAGO
+CLARK                MANAGER                  2850         10 ACCOUNTING                   NEW YORK
+SCOTT                ANALYST                  3000         20 RESEARCH                     DALLAS
+KING                 PRESIDENT                5000         10 ACCOUNTING                   NEW YORK
+TURNER               SALESMAN                 1500         30 SALES                        CHICAGO
+ADAMS                CLERK                    1100         20 RESEARCH                     DALLAS
+
+ENAME                JOB                       SAL     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- ---------------------------- --------------------------
+JAMES                CLERK                     950         30 SALES                        CHICAGO
+FORD                 ANALYST                  3300         20 RESEARCH                     DALLAS
+MILLER               CLERK                    1300         10 ACCOUNTING                   NEW YORK
+                                                              OPERATIONS                   BOSTON
+
+15 행이 선택되었습니다.
+
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,job,sal,dept.deptno,dname,loc
+  2  from emp
+  3  join dept
+  4  on emp.deptno=dept.deptno
+  5  join salgrade
+  6* on emp.sal >= losal and sal<=hisal
+SQL> /
+
+ENAME                JOB                       SAL     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- ---------------------------- --------------------------
+KING                 PRESIDENT                5000         10 ACCOUNTING                   NEW YORK
+FORD                 ANALYST                  3300         20 RESEARCH                     DALLAS
+SCOTT                ANALYST                  3000         20 RESEARCH                     DALLAS
+JONES                MANAGER                  2975         20 RESEARCH                     DALLAS
+CLARK                MANAGER                  2850         10 ACCOUNTING                   NEW YORK
+BLAKE                MANAGER                  2850         30 SALES                        CHICAGO
+SMITH                CLERK                    2000         20 RESEARCH                     DALLAS
+ALLEN                SALESMAN                 1600         30 SALES                        CHICAGO
+TURNER               SALESMAN                 1500         30 SALES                        CHICAGO
+MILLER               CLERK                    1300         10 ACCOUNTING                   NEW YORK
+WARD                 SALESMAN                 1250         30 SALES                        CHICAGO
+
+ENAME                JOB                       SAL     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- ---------------------------- --------------------------
+MARTIN               SALESMAN                 1250         30 SALES                        CHICAGO
+ADAMS                CLERK                    1100         20 RESEARCH                     DALLAS
+JAMES                CLERK                     950         30 SALES                        CHICAGO
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,job,sal,grade,dept.deptno,dname,loc
+  2  from emp
+  3  join dept
+  4  on emp.deptno=dept.deptno
+  5  join salgrade
+  6* on emp.sal >= losal and sal<=hisal
+SQL> /
+
+ENAME                JOB                       SAL      GRADE     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- ---------- ---------------------------- --------------------------
+KING                 PRESIDENT                5000          5         10 ACCOUNTING                   NEW YORK
+FORD                 ANALYST                  3300          5         20 RESEARCH                     DALLAS
+SCOTT                ANALYST                  3000          4         20 RESEARCH                     DALLAS
+JONES                MANAGER                  2975          4         20 RESEARCH                     DALLAS
+CLARK                MANAGER                  2850          4         10 ACCOUNTING                   NEW YORK
+BLAKE                MANAGER                  2850          4         30 SALES                        CHICAGO
+SMITH                CLERK                    2000          3         20 RESEARCH                     DALLAS
+ALLEN                SALESMAN                 1600          3         30 SALES                        CHICAGO
+TURNER               SALESMAN                 1500          3         30 SALES                        CHICAGO
+MILLER               CLERK                    1300          2         10 ACCOUNTING                   NEW YORK
+WARD                 SALESMAN                 1250          2         30 SALES                        CHICAGO
+
+ENAME                JOB                       SAL      GRADE     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- ---------- ---------------------------- --------------------------
+MARTIN               SALESMAN                 1250          2         30 SALES                        CHICAGO
+ADAMS                CLERK                    1100          1         20 RESEARCH                     DALLAS
+JAMES                CLERK                     950          1         30 SALES                        CHICAGO
+
+14 행이 선택되었습니다.
+
+
