@@ -297,3 +297,56 @@ KING                       5000
 JAMES                       950
 
 14 행이 선택되었습니다.
+
+SQL> select deptno, avg(sal) from emp
+  2  group by deptno;
+
+    DEPTNO   AVG(SAL)
+---------- ----------
+        30 1566.66667
+        20       2475
+        10       3050
+
+SQL> select deptno,avg(sal) from emp
+  2  group by deptno having avg(sal) > 200
+  3  /
+
+    DEPTNO   AVG(SAL)
+---------- ----------
+        30 1566.66667
+        20       2475
+        10       3050
+
+SQL> select deptno,avg(sal) from emp
+  2  group by deptno having avg(sal) > 2000;
+
+    DEPTNO   AVG(SAL)
+---------- ----------
+        20       2475
+        10       3050
+
+SQL> select deptno,avg(sal) from emp
+  2  where sal >=2000
+  3  group by deptno having avg(sal) >=2850
+  4  order by deptno;
+
+    DEPTNO   AVG(SAL)
+---------- ----------
+        10       3925
+        30       2850
+
+SQL> select avg(sal) from emp group by deptno;
+
+  AVG(SAL)
+----------
+1566.66667
+      2475
+      3050
+
+SQL> select deptno,avg(sal) from emp group by deptno;
+
+    DEPTNO   AVG(SAL)
+---------- ----------
+        30 1566.66667
+        20       2475
+        10       3050
