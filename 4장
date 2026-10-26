@@ -1420,3 +1420,92 @@ JAMES                CLERK                     950          1         30 SALES  
 14 행이 선택되었습니다.
 
 
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,job,sal,mgr, hiredate, e.deptno,dname,loc
+  2  from emp e
+  3  join dept
+  4* on e.deptno=dept.deptno
+SQL> /
+
+ENAME                JOB                       SAL        MGR HIREDATE     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- -------- ---------- ---------------------------- --------------------------
+SMITH                CLERK                    2000       7902 80/12/17         20 RESEARCH                     DALLAS
+ALLEN                SALESMAN                 1600       7698 81/02/20         30 SALES                        CHICAGO
+WARD                 SALESMAN                 1250       7698 81/02/22         30 SALES                        CHICAGO
+JONES                MANAGER                  2975       7839 81/04/02         20 RESEARCH                     DALLAS
+MARTIN               SALESMAN                 1250       7698 81/09/28         30 SALES                        CHICAGO
+BLAKE                MANAGER                  2850       7839 81/05/01         30 SALES                        CHICAGO
+CLARK                MANAGER                  2850       7839 81/06/09         10 ACCOUNTING                   NEW YORK
+SCOTT                ANALYST                  3000       7566 87/04/19         20 RESEARCH                     DALLAS
+KING                 PRESIDENT                5000            81/11/17         10 ACCOUNTING                   NEW YORK
+TURNER               SALESMAN                 1500       7698 81/09/08         30 SALES                        CHICAGO
+ADAMS                CLERK                    1100       7788 87/05/23         20 RESEARCH                     DALLAS
+
+ENAME                JOB                       SAL        MGR HIREDATE     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- -------- ---------- ---------------------------- --------------------------
+JAMES                CLERK                     950       7698 81/12/03         30 SALES                        CHICAGO
+FORD                 ANALYST                  3300       7566 81/12/03         20 RESEARCH                     DALLAS
+MILLER               CLERK                    1300       7782 82/01/23         10 ACCOUNTING                   NEW YORK
+
+14 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,job,sal,mgr, hiredate, e.deptno,dname,loc
+  2  from emp e
+  3  join dept
+  4  on e.deptno=dept.deptno
+  5* where e.deptno >= 20
+SQL> /
+
+ENAME                JOB                       SAL        MGR HIREDATE     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- -------- ---------- ---------------------------- --------------------------
+SMITH                CLERK                    2000       7902 80/12/17         20 RESEARCH                     DALLAS
+ALLEN                SALESMAN                 1600       7698 81/02/20         30 SALES                        CHICAGO
+WARD                 SALESMAN                 1250       7698 81/02/22         30 SALES                        CHICAGO
+JONES                MANAGER                  2975       7839 81/04/02         20 RESEARCH                     DALLAS
+MARTIN               SALESMAN                 1250       7698 81/09/28         30 SALES                        CHICAGO
+BLAKE                MANAGER                  2850       7839 81/05/01         30 SALES                        CHICAGO
+SCOTT                ANALYST                  3000       7566 87/04/19         20 RESEARCH                     DALLAS
+TURNER               SALESMAN                 1500       7698 81/09/08         30 SALES                        CHICAGO
+ADAMS                CLERK                    1100       7788 87/05/23         20 RESEARCH                     DALLAS
+JAMES                CLERK                     950       7698 81/12/03         30 SALES                        CHICAGO
+FORD                 ANALYST                  3300       7566 81/12/03         20 RESEARCH                     DALLAS
+
+11 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,job,sal,mgr, hiredate, e.deptno,dname,loc
+  2  from emp e
+  3  join dept
+  4  on e.deptno=dept.deptno
+  5* where e.deptno >= 10
+SQL> /
+
+ENAME                JOB                       SAL        MGR HIREDATE     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- -------- ---------- ---------------------------- --------------------------
+SMITH                CLERK                    2000       7902 80/12/17         20 RESEARCH                     DALLAS
+ALLEN                SALESMAN                 1600       7698 81/02/20         30 SALES                        CHICAGO
+WARD                 SALESMAN                 1250       7698 81/02/22         30 SALES                        CHICAGO
+JONES                MANAGER                  2975       7839 81/04/02         20 RESEARCH                     DALLAS
+MARTIN               SALESMAN                 1250       7698 81/09/28         30 SALES                        CHICAGO
+BLAKE                MANAGER                  2850       7839 81/05/01         30 SALES                        CHICAGO
+CLARK                MANAGER                  2850       7839 81/06/09         10 ACCOUNTING                   NEW YORK
+SCOTT                ANALYST                  3000       7566 87/04/19         20 RESEARCH                     DALLAS
+KING                 PRESIDENT                5000            81/11/17         10 ACCOUNTING                   NEW YORK
+TURNER               SALESMAN                 1500       7698 81/09/08         30 SALES                        CHICAGO
+ADAMS                CLERK                    1100       7788 87/05/23         20 RESEARCH                     DALLAS
+
+ENAME                JOB                       SAL        MGR HIREDATE     DEPTNO DNAME                        LOC
+-------------------- ------------------ ---------- ---------- -------- ---------- ---------------------------- --------------------------
+JAMES                CLERK                     950       7698 81/12/03         30 SALES                        CHICAGO
+FORD                 ANALYST                  3300       7566 81/12/03         20 RESEARCH                     DALLAS
+MILLER               CLERK                    1300       7782 82/01/23         10 ACCOUNTING                   NEW YORK
+
+14 행이 선택되었습니다.
+
