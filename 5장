@@ -99,3 +99,13 @@ SQL> /
 2208.92857          2208.92857
 
 
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select avg(comm),sum(comm)/ count(comm) from emp
+SQL> /
+
+ AVG(COMM) SUM(COMM)/COUNT(COMM)
+---------- ---------------------
+       550                   550
+
