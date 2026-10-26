@@ -1542,3 +1542,35 @@ TURNER               SALESMAN                 1500       7698 81/09/08         3
 WARD                 SALESMAN                 1250       7698 81/02/22         30 SALES                        CHICAGO
 
 14 행이 선택되었습니다.
+
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select e.empno, e.ename, e.job, e.sal, e.mgr, e.hiredate, m.empno,m.ename
+  2  from emp e
+  3  join emp m
+  4  on e.mgr=m.empno
+  5* order by e.ename
+SQL> /
+
+     EMPNO ENAME                JOB                       SAL        MGR HIREDATE      EMPNO ENAME
+---------- -------------------- ------------------ ---------- ---------- -------- ---------- --------------------
+      7876 ADAMS                CLERK                    1100       7788 87/05/23       7788 SCOTT
+      7499 ALLEN                SALESMAN                 1600       7698 81/02/20       7698 BLAKE
+      7698 BLAKE                MANAGER                  2850       7839 81/05/01       7839 KING
+      7782 CLARK                MANAGER                  2850       7839 81/06/09       7839 KING
+      7902 FORD                 ANALYST                  3300       7566 81/12/03       7566 JONES
+      7900 JAMES                CLERK                     950       7698 81/12/03       7698 BLAKE
+      7566 JONES                MANAGER                  2975       7839 81/04/02       7839 KING
+      7654 MARTIN               SALESMAN                 1250       7698 81/09/28       7698 BLAKE
+      7934 MILLER               CLERK                    1300       7782 82/01/23       7782 CLARK
+      7788 SCOTT                ANALYST                  3000       7566 87/04/19       7566 JONES
+      7369 SMITH                CLERK                    2000       7902 80/12/17       7902 FORD
+
+     EMPNO ENAME                JOB                       SAL        MGR HIREDATE      EMPNO ENAME
+---------- -------------------- ------------------ ---------- ---------- -------- ---------- --------------------
+      7844 TURNER               SALESMAN                 1500       7698 81/09/08       7698 BLAKE
+      7521 WARD                 SALESMAN                 1250       7698 81/02/22       7698 BLAKE
+
+13 행이 선택되었습니다.
