@@ -109,3 +109,191 @@ SQL> /
 ---------- ---------------------
        550                   550
 
+
+SQL> select ename,deptno from emp order by deptno;
+
+ENAME                    DEPTNO
+-------------------- ----------
+CLARK                        10
+KING                         10
+MILLER                       10
+JONES                        20
+FORD                         20
+ADAMS                        20
+SMITH                        20
+SCOTT                        20
+WARD                         30
+TURNER                       30
+ALLEN                        30
+
+ENAME                    DEPTNO
+-------------------- ----------
+JAMES                        30
+BLAKE                        30
+MARTIN                       30
+
+14 행이 선택되었습니다.
+
+SQL> select count(*) from emp where deptno=20;
+
+  COUNT(*)
+----------
+         5
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1* select count(*),max(sal),min(sal) from emp where deptno=20
+SQL> /
+
+  COUNT(*)   MAX(SAL)   MIN(SAL)
+---------- ---------- ----------
+         5       3300       1100
+
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select count(*),max(sal),min(sal) from emp
+  2* group by deptno
+SQL> /
+
+  COUNT(*)   MAX(SAL)   MIN(SAL)
+---------- ---------- ----------
+         6       2850        950
+         5       3300       1100
+         3       5000       1300
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select deptno, count(*),max(sal),min(sal) from emp
+  2* group by deptno
+SQL> /
+
+    DEPTNO   COUNT(*)   MAX(SAL)   MIN(SAL)
+---------- ---------- ---------- ----------
+        30          6       2850        950
+        20          5       3300       1100
+        10          3       5000       1300
+
+SQL> edi
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select deptno, count(*),max(sal),min(sal) from emp
+  2  group by deptno
+  3* order by deptno
+SQL> /
+
+    DEPTNO   COUNT(*)   MAX(SAL)   MIN(SAL)
+---------- ---------- ---------- ----------
+        10          3       5000       1300
+        20          5       3300       1100
+        30          6       2850        950
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select deptno, count(*),sum(sal),avg(sal),max(sal),min(sal) from emp
+  2  group by deptno, job
+  3* order by deptno
+SQL> /
+
+    DEPTNO   COUNT(*)   SUM(SAL)   AVG(SAL)   MAX(SAL)   MIN(SAL)
+---------- ---------- ---------- ---------- ---------- ----------
+        10          1       1300       1300       1300       1300
+        10          1       2850       2850       2850       2850
+        10          1       5000       5000       5000       5000
+        20          2       6300       3150       3300       3000
+        20          2       3100       1550       2000       1100
+        20          1       2975       2975       2975       2975
+        30          1        950        950        950        950
+        30          1       2850       2850       2850       2850
+        30          4       5600       1400       1600       1250
+
+9 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select deptno, count(*),sum(sal),avg(sal),max(sal),min(sal) from emp
+  2  group by deptno, job
+  3* order by deptno,job
+SQL> /
+
+    DEPTNO   COUNT(*)   SUM(SAL)   AVG(SAL)   MAX(SAL)   MIN(SAL)
+---------- ---------- ---------- ---------- ---------- ----------
+        10          1       1300       1300       1300       1300
+        10          1       2850       2850       2850       2850
+        10          1       5000       5000       5000       5000
+        20          2       6300       3150       3300       3000
+        20          2       3100       1550       2000       1100
+        20          1       2975       2975       2975       2975
+        30          1        950        950        950        950
+        30          1       2850       2850       2850       2850
+        30          4       5600       1400       1600       1250
+
+9 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select deptno,job, count(*),sum(sal),avg(sal),max(sal),min(sal) from emp
+  2  where sal >= 1200
+  3  group by deptno, job
+  4* order by deptno,job
+SQL> /
+
+    DEPTNO JOB                  COUNT(*)   SUM(SAL)   AVG(SAL)   MAX(SAL)   MIN(SAL)
+---------- ------------------ ---------- ---------- ---------- ---------- ----------
+        10 CLERK                       1       1300       1300       1300       1300
+        10 MANAGER                     1       2850       2850       2850       2850
+        10 PRESIDENT                   1       5000       5000       5000       5000
+        20 ANALYST                     2       6300       3150       3300       3000
+        20 CLERK                       1       2000       2000       2000       2000
+        20 MANAGER                     1       2975       2975       2975       2975
+        30 MANAGER                     1       2850       2850       2850       2850
+        30 SALESMAN                    4       5600       1400       1600       1250
+
+8 행이 선택되었습니다.
+
+SQL> select sum(sal) from emp;
+
+  SUM(SAL)
+----------
+     30925
+
+SQL> select max(sal) from emp;
+
+  MAX(SAL)
+----------
+      5000
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename, max(sal) from emp
+  2* group by ename
+SQL> /
+
+ENAME                  MAX(SAL)
+-------------------- ----------
+ALLEN                      1600
+JONES                      2975
+FORD                       3300
+CLARK                      2850
+MILLER                     1300
+SMITH                      2000
+WARD                       1250
+MARTIN                     1250
+SCOTT                      3000
+TURNER                     1500
+ADAMS                      1100
+
+ENAME                  MAX(SAL)
+-------------------- ----------
+BLAKE                      2850
+KING                       5000
+JAMES                       950
+
+14 행이 선택되었습니다.
