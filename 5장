@@ -416,3 +416,18 @@ SQL> select mgr,min(sal) from emp group by mgr;
       7902       2000
       7566       3000
       7788       1100
+
+SQL> edit
+  1  select mgr,min(sal) from emp
+  2  where mgr is not null
+  3* group by mgr
+SQL> /
+
+       MGR   MIN(SAL)
+---------- ----------
+      7839       2850
+      7782       1300
+      7698        950
+      7902       2000
+      7566       3000
+      7788       1100
