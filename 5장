@@ -350,3 +350,69 @@ SQL> select deptno,avg(sal) from emp group by deptno;
         30 1566.66667
         20       2475
         10       3050
+
+
+
+SQL> select ename, mgr from emp order by mgr;
+
+ENAME                       MGR
+-------------------- ----------
+FORD                       7566
+SCOTT                      7566
+JAMES                      7698
+ALLEN                      7698
+WARD                       7698
+TURNER                     7698
+MARTIN                     7698
+MILLER                     7782
+ADAMS                      7788
+BLAKE                      7839
+JONES                      7839
+
+ENAME                       MGR
+-------------------- ----------
+CLARK                      7839
+SMITH                      7902
+KING
+
+SQL> SELECT COUNT(MGR) FROM EMP;
+
+COUNT(MGR)
+----------
+        13
+
+SQL> SELECT COUNT(MGR) FROM EMP;
+
+COUNT(MGR)
+----------
+        13
+
+SQL> SELECT COUNT(MGR) FROM EMP;
+
+COUNT(MGR)
+----------
+        13
+
+SQL> select distinct mgr from emp;
+
+       MGR
+----------
+      7839
+
+      7782
+      7698
+      7902
+      7566
+      7788
+
+SQL> select mgr,min(sal) from emp group by mgr;
+
+       MGR   MIN(SAL)
+---------- ----------
+      7839       2850
+                 5000
+      7782       1300
+      7698        950
+      7902       2000
+      7566       3000
+      7788       1100
