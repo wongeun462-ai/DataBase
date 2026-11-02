@@ -123,3 +123,68 @@ SQL> insert into dept(deptno,dname,loc)
 SQL> insert into dept values (20,'RESEARCH','DALLAS');
 
 1 개의 행이 만들어졌습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC
+---------- ---------------------------- --------------------------
+        10 ACCOUNTING                   NEW YORK
+        20 RESEARCH                     DALLAS
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC
+---------- ---------------------------- --------------------------
+        10 ACCOUNTING                   NEW YORK
+        20 RESEARCH                     DALLAS
+
+SQL> rollback;
+
+롤백이 완료되었습니다.
+
+SQL> select * from dept;
+
+선택된 레코드가 없습니다
+
+SQL> insert into dept(deptno,dname,loc) values (10,'ACCOUNTING', 'NEW YORK');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into dept(deptno,dname,loc) values (10,'RESEARCH', 'DALLAS');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into dept(deptno,dname,loc) values (30,'SALES', 'CHICAGO');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into dept(deptno,dname,loc) values (40,'OPERATIONS', 'BOSTON');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from dept
+  2  ;
+
+    DEPTNO DNAME                        LOC
+---------- ---------------------------- --------------------------
+        10 ACCOUNTING                   NEW YORK
+        10 RESEARCH                     DALLAS
+        30 SALES                        CHICAGO
+        40 OPERATIONS                   BOSTON
+
+SQL> commit;
+
+커밋이 완료되었습니다.
+
+SQL> rollback;
+
+롤백이 완료되었습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC
+---------- ---------------------------- --------------------------
+        10 ACCOUNTING                   NEW YORK
+        10 RESEARCH                     DALLAS
+        30 SALES                        CHICAGO
+        40 OPERATIONS                   BOSTON
