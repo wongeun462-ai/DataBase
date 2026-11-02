@@ -78,3 +78,48 @@ DEPT                                                         TABLE
 
 
 EMP                                                          TABLE
+
+SQL> purge recyclebin;
+
+휴지통이 지워졌습니다.
+
+SQL> select * from tab;
+
+TNAME                                                        TABTYPE
+------------------------------------------------------------ --------------
+ CLUSTERID
+----------
+DEPT                                                         TABLE
+
+
+EMP                                                          TABLE
+
+
+
+SQL> desc emp;
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> desc dept;
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                             NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> insert into dept(deptno,dname,loc)
+  2  values          (10,'ACCOUNTING','NEW YORK');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into dept values (20,'RESEARCH','DALLAS');
+
+1 개의 행이 만들어졌습니다.
