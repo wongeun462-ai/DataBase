@@ -589,3 +589,124 @@ YEAR       COUNT(*)
 1980              1
 1982              1
 1981             10
+
+
+SQL> select job,deptno,sum(sal) from emp group by job,deptno order by job,deptno;
+
+JOB                    DEPTNO   SUM(SAL)
+------------------ ---------- ----------
+ANALYST                    20       6300
+CLERK                      10       1300
+CLERK                      20       3100
+CLERK                      30        950
+MANAGER                    10       2850
+MANAGER                    20       2975
+MANAGER                    30       2850
+PRESIDENT                  10       5000
+SALESMAN                   30       5600
+
+9 행이 선택되었습니다.
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select deptno, ename, sal from emp
+  2* where sal in (select max(sal) from emp group by deptno)
+SQL> /
+
+    DEPTNO ENAME                       SAL
+---------- -------------------- ----------
+        30 BLAKE                      2850
+        10 CLARK                      2850
+        10 KING                       5000
+        20 FORD                       3300
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select deptno, ename, sal from emp
+  2  where sal in (select max(sal) from emp group by deptno)
+  3* order by deptno
+SQL> /
+
+    DEPTNO ENAME                       SAL
+---------- -------------------- ----------
+        10 CLARK                      2850
+        10 KING                       5000
+        20 FORD                       3300
+        30 BLAKE                      2850
+
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select deptno, ename, sal from emp
+  2  where sal in (select deptno, max(sal) from emp group by deptno)
+  3* order by deptno
+SQL> /
+where sal in (select deptno, max(sal) from emp group by deptno)
+              *
+2행에 오류:
+ORA-00913: 값의 수가 너무 많습니다
+
+->
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select deptno, ename, sal from emp
+  2  where (deptno, sal) in (select deptno,max(sal) from emp group by deptno)
+  3* order by deptno
+  4  /
+
+    DEPTNO ENAME                       SAL
+---------- -------------------- ----------
+        10 KING                       5000
+        20 FORD                       3300
+        30 BLAKE                      2850
+
+SQL> select deptno, max(sal) from emp group by deptno;
+
+    DEPTNO   MAX(SAL)
+---------- ----------
+        30       2850
+        20       3300
+        10       5000
+
+SQL> select ename,job,sal from emp where sal <(select max(sal) from emp
+  2  where job ='CLERK')
+  3  AND job !='CLERK';
+
+ENAME                JOB                       SAL
+-------------------- ------------------ ----------
+ALLEN                SALESMAN                 1600
+WARD                 SALESMAN                 1250
+MARTIN               SALESMAN                 1250
+TURNER               SALESMAN                 1500
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename,job,sal from emp where sal < ANY (select sal from emp
+  2  where job ='CLERK')
+  3* AND job !='CLERK'
+SQL> /
+
+ENAME                JOB                       SAL
+-------------------- ------------------ ----------
+WARD                 SALESMAN                 1250
+MARTIN               SALESMAN                 1250
+TURNER               SALESMAN                 1500
+ALLEN                SALESMAN                 1600
+
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select ename, job, sal from emp where sal >
+  2* (select max(avg(sal)) from emp group by deptno)
+SQL> /
+
+ENAME                JOB                       SAL
+-------------------- ------------------ ----------
+KING                 PRESIDENT                5000
+FORD                 ANALYST                  3300
