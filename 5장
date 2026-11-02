@@ -431,3 +431,56 @@ SQL> /
       7902       2000
       7566       3000
       7788       1100
+
+#5장 9번문제
+SQL> select mgr,min(sal) from emp
+  2  where mgr is not null
+  3  group by mgr
+  4  having min(sal) >= 1000
+  5  order by min(sal) desc;
+
+       MGR   MIN(SAL)
+---------- ----------
+      7566       3000
+      7839       2850
+      7902       2000
+      7782       1300
+      7788       1100
+
+
+SQL> select ename,dname,loc, sal from emp
+  2  join dept on emp.deptno=dept.deptno;
+ENAME                DNAME                        LOC                               SAL
+-------------------- ---------------------------- -------------------------- ----------
+SMITH                RESEARCH                     DALLAS                           2000
+ALLEN                SALES                        CHICAGO                          1600
+WARD                 SALES                        CHICAGO                          1250
+JONES                RESEARCH                     DALLAS                           2975
+MARTIN               SALES                        CHICAGO                          1250
+BLAKE                SALES                        CHICAGO                          2850
+CLARK                ACCOUNTING                   NEW YORK                         2850
+SCOTT                RESEARCH                     DALLAS                           3000
+KING                 ACCOUNTING                   NEW YORK                         5000
+TURNER               SALES                        CHICAGO                          1500
+ADAMS                RESEARCH                     DALLAS                           1100
+
+ENAME                DNAME                        LOC                               SAL
+-------------------- ---------------------------- -------------------------- ----------
+JAMES                SALES                        CHICAGO                           950
+FORD                 RESEARCH                     DALLAS                           3300
+MILLER               ACCOUNTING                   NEW YORK                         1300
+
+#5장 10번문제
+SQL> edit
+file afiedt.buf(이)가 기록되었습니다
+
+  1  select dname,loc,count(*), avg(sal) from emp
+  2  join dept on emp.deptno=dept.deptno
+  3* group by dname,loc
+SQL> /
+
+DNAME                        LOC                          COUNT(*)   AVG(SAL)
+---------------------------- -------------------------- ---------- ----------
+RESEARCH                     DALLAS                              5       2475
+SALES                        CHICAGO                             6 1566.66667
+ACCOUNTING                   NEW YORK                            3       3050
