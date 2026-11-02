@@ -1,0 +1,80 @@
+SQL> create user 원근 identified by pass;
+
+사용자가 생성되었습니다.
+
+SQL> drop user 원근 cascade;
+
+사용자가 삭제되었습니다.
+
+ grant connect, resource, create view to 염원근;
+권한 부여
+
+passwd(비번바꾸는거)
+
+SQL> desc scott.emp;
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select*from tab;
+
+TNAME                                                        TABTYPE
+------------------------------------------------------------ --------------
+ CLUSTERID
+----------
+DEPT                                                         TABLE
+
+
+
+SQL> desc scott.emp
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> create table emp (empno number(4),ename varchar2(10),
+  2  job varchar2(9), mgr number(4),hiredate date,sal number(7,2),comm number(7,2),
+  3  deptno number(2));
+
+테이블이 생성되었습니다.
+
+SQL> select * from tab;
+
+TNAME                                                        TABTYPE
+------------------------------------------------------------ --------------
+ CLUSTERID
+----------
+DEPT                                                         TABLE
+
+
+EMP                                                          TABLE
+
+
+
+SQL> purge recyclebin;
+
+휴지통이 지워졌습니다.
+
+SQL> select * from tab;
+
+TNAME                                                        TABTYPE
+------------------------------------------------------------ --------------
+ CLUSTERID
+----------
+DEPT                                                         TABLE
+
+
+EMP                                                          TABLE
